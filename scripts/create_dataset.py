@@ -1,14 +1,21 @@
 #!/bin/env python
 
-from helpers import (
-    cookie2dicom,
-    write_file
+from scripts.helpers import (
+    write_file,
+    image2dicom
 )
 
 from glob import glob
 import os
 
 here = os.getcwd()
+
+# Dcm2k provided in this image https://www.github.com/pydicom/singularity-dicom
+dcm = "%s/dcm.img" %(here)
+if not os.path.exists(dcm):
+    print('You must generate the dcm.img with dcm2tk to run the conversion first.')
+    print('See https://www.github.com/pydicom/singularity-dicom for instructions.')
+    sys.exit(1)
 
 # These raw datasets are in wordfish standard format
 # https://www.github.com/vsoch/wordfish-standard
@@ -35,14 +42,14 @@ for image_folder in image_folders:
     for image_series in series:
         images = glob('%s/*.jpg' %image_series)
         for image in images:
-            metadata = "%s.json" %image.strip('.jpg')   
-            if os.path.exists(metadata):
-                dataset = cookie2dicom(image,metadata)
-                image_id = os.path.basename(image).replace('.jpg','')
-                lookup[cookie_id].append(image_id)
-                dcm_file = os.path.join(image_output,"%s.dcm" %image_id)
-                dataset.save_as(dcm_file)
-
+            image_id = os.path.basename(image).replace('.jpg','')
+            lookup[cookie_id].append(image_id)
+            dcm_file = os.path.join(image_output,"%s.dcm" %image_id)
+            image2dicom(input_image=image,
+                        output_dcm=dcm_file,
+                        singularity=dcm,
+                        patient_id=cookie_id)
+            
 
 for cookie_name, images in lookup.items():
 

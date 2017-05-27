@@ -3,6 +3,7 @@ from pydicom import read_file
 from PIL import Image
 from random import choice
 from haikunator import Haikunator
+import subprocess
 import datetime
 import numpy
 import json
@@ -10,6 +11,12 @@ import os
 
 haikunator = Haikunator()
 here = os.path.dirname(os.path.abspath(__file__))
+
+def run_command(cmd):
+    process = subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    output, err = process.communicate()    
+    return output
+
 
 def read_json(filename,mode='r'):
     '''read_json reads in a json file and returns
@@ -27,6 +34,36 @@ def write_file(filename,content,mode="w"):
 
 def get_name():
     return haikunator.haikunate(token_length=0,delimiter=' ')
+
+
+def image2dicom(input_image,singularity,output_dcm=None,patient_id=None):
+   '''image2dicom uses dcm2k img2dcm wrapped in a singularity container to more 
+   properly convert a jpg image to dicom. I was using cookie2dicom and doing it manually,
+   and found that I was uncomfortable with the number of bugs (I am relatively new to dicom
+   ) and think this is a better starting approach.
+   :param input_image: the image to convert
+   :param singularity: the singularity image that has the dcm2k tools installed at opt.
+   :param output_dcm: if not defined, will use same path as original image, but with dicom.
+   '''   
+   if output_dcm is None:
+       output_dcm = "%s.dcm" %(os.path.splitext(input_image)[0])
+
+   cmd = ["singularity","run",singularity,"img2dcm",input_image,output_dcm]
+   output = run_command(cmd)
+
+   # Add some fun details for the patient, etc.
+   if os.path.exists(output_dcm):
+       ds = read_file(output_dcm)
+       now = datetime.datetime.now()
+       ds.StudyDate = '20131210'
+       ds.StudyTime = '%s%s%s' %(now.hour,now.minute,now.second)
+       ds.InstitutionName = "STANFORD"
+       ds.ReferringPhysicianName = 'Dr. %s' %(get_name())
+       ds.PatientSex = choice(['M','F'])
+       if patient_id is not None:
+           ds.PatientID = patient_id
+   return output_dcm
+
 
 
 def cookie2dicom(image,metadata):
@@ -238,22 +275,22 @@ def cookie2dicom(image,metadata):
     ds.PixelSpacing = ''
 
     # (0028, 0100) Bits Allocated                      US: 16
-    try:
-        ds.BitsAllocated = int(metadata.get('EXIF CompressedBitsPerPixel',0))
-    except:
-        pass
+    #try:
+    #    ds.BitsAllocated = int(metadata.get('EXIF CompressedBitsPerPixel',0))
+    #except:
+    #    pass
 
     # (0028, 0101) Bits Stored                         US: 16
-    try:
-        ds.BitsStored = int(metadata.get('EXIF CompressedBitsPerPixel',0))
-    except:
-        pass
+    #try:
+    #    ds.BitsStored = int(metadata.get('EXIF CompressedBitsPerPixel',0))
+    #except:
+    #    pass
 
     # (0028, 0102) High Bit                            US: 15
-    try:
-        ds.HighBit = int(metadata.get('Image XResolution',0))
-    except:
-        pass
+    #try:
+    #    ds.HighBit = int(metadata.get('Image XResolution',0))
+    #except:
+    #    pass
 
     # (0028, 0103) Pixel Representation                US: 1
     ds.PixelRepresentation = 1
@@ -279,12 +316,4 @@ def cookie2dicom(image,metadata):
     # (7fe0, 0010) Pixel Data                          OW: Array of 4330 bytes
     ds.PixelData = bytes(pixels)
 
-    # (fffc, fffc) Data Set Trailing Padding           OB: Array of 126 bytes
-    ds.DataSetTrailingPadding = trailing_padding()
-
     return ds 
-
-
-def trailing_padding():
-    return b'\n\x00\xfe\x00\x04\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x01\x04\x00\x01\x00\x00\x00\x00\x02\x00\x00\x01\x01\x04\x00\x01\x00\x00\x00\x00\x02\x00\x00\x02\x01\x03\x00\x01\x00\x00\x00\x10\x00\x00\x00\x03\x01\x03\x00\x01\x00\x00\x00\x01\x00\x00\x00\x06\x01\x03\x00\x01\x00\x00\x00\x01\x00\x00\x00\x11\x01\x04\x00\x01\x00\x00\x00\xdc\x05\x00\x00\x15\x01\x03\x00\x01\x00\x00\x00\x01\x00\x00\x00\x16\x01\x04\x00\x01\x00\x00\x00\x00\x02\x00\x00\x17\x01\x04\x00\x01\x00\x00\x00\x00\x00\x08\x00\x00\x00\x00\x00'
-

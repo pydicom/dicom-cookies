@@ -29,11 +29,11 @@ layout: none
                     "attributes": {
                     {% for attribute in dataset.attributes %}
                         {% for parts in attribute %}
-                            "{{ parts[0] }}": "{{ parts[1] }}"{% unless forloop.last %},{% endunless %}
+                            "{{ parts[0] }}": "{{ parts[1] }}"{% if forloop.last %}{% else %},{% endif %}
                         {% endfor %}
                     {% endfor %}
                  {% endif %}
-    }{% unless forloop.last %},{% endunless %}
+    }{% if forloop.last %}{% else %},{% endif %}
     {% endif %}
     {% endunless %}
 {% endfor %}
