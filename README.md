@@ -1,8 +1,8 @@
 # Dicom Cookies!
 
-[API Human Readable Base](https://pydicom.github.io/dicom-cookies)
-[API Datasets Base](https://pydicom.github.io/dicom-cookies/datasets)
-[API Images Base](https://pydicom.github.io/dicom-cookies/images)
+- [API Human Readable Base](https://pydicom.github.io/dicom-cookies)
+- [API Datasets Base](https://pydicom.github.io/dicom-cookies/datasets)
+- [API Images Base](https://pydicom.github.io/dicom-cookies/images)
 
 This is a testing dataset of dicom files, actually images of cookies (and candy tumors) provided in Dicom Format with various metadata, the intention being that you can use this dataset to test your DICOM applications. The dataset is provided in the [Experiment Factory](https://www.github.com/expfactory-data/cookies) (static JSON API) standard, to make it servable from this static Github folder
 
