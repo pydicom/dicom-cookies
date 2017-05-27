@@ -26,49 +26,35 @@ _datasets
    cookie-1
       images.txt
       images
-          image1.txt
-          image1/image1.jpg
+          image1.dcm
+          image2.dcm
 ```
 
 In the above example, we have an entity named "cookie-1" with a metadata.txt file that will be rendered at the url `/datasets/cookie-1/metadata` as json, and this metadata file will have an `includes` section that will indicate if we have images and/or text, or neither, and then link to `/datasets/cookie-1/images` and/or `/datasets/cookie-1/texts`. Details about the metadata file, images and text files, are below. For the above, we should note that the folder name `cookie-1` is going to coincide with the `dataset-id`.
 
 
 ### Metadata
-`metadata.txt` should be a text file located at the top level of the subject folder. Note that the `dataset-id` coincides with the folder name for the dataset. THe `metadata.txt` includes the fields specified in [meta.yml](https://www.github.com/expfactory-data/cookies/master/_data/meta.yml), organized according to being required or not. We can look at an example:
+`metadata.txt` should be a text file located at the top level of the subject folder. Note that the `dataset-id` coincides with the folder name for the dataset. THe `metadata.txt` includes the fields specified in [meta.yml](https://www.github.com/expfactory-data/cookies/master/_data/meta.yml), organized according to being required or not. We can look at a minimal example:
 
 ```
 ---
-title: Cookie Tumor 1
 type: entity
 dataset-id: cookie-1
-hidden: false
 
-description: This is a cookie tumor. I am describing the cookie tumor!
+includes:
+  - images
+---
+```
 
-license: This is a license for this dataset.
+Features about the dataset can be put in the list of `attributes`, although in our case, we are including them with the dicom files:
 
+```
 attributes:
-  - cookie_type: sugar
-  - cookie_age: 2
-  - cookie_candy: m&ms
-
-includes:
-  - images
-  - texts
----
+  - color: red
+  - flavor: chocolate
 ```
 
-Any features about the dataset should be put in the list of `attributes`. The `includes` section indicates that the entity has subfolders "images" and "texts," and an images.txt and texts.txt file to describe the contents.  This file could be very minimumal, and perhaps only have the following:
-
-```
----
-type: entity
-dataset-id: cookie-1
-
-includes:
-  - images
----
-```
+The `includes` section indicates that the entity has subfolders "images"," and an images.txt is also present to describe the contents.  
 
 
 ### Images and Texts
@@ -80,42 +66,20 @@ type: images
 dataset-id: cookie-1
 
 images:
-  - image1
+  - image1.dcm
+  - image2.dcm
 ---
 ```
 
 As a reminder, in the example above, we have a folder that looks like this, and we are viewing the images.txt file:
 
 ```
+   cookie-1
       images.txt
       images
-          image1.txt
-          image1/image1.jpg
-
+          image1.dcm
+          image2.dcm
 ```
-
-Within the images folder, we should have an image1.txt file for each image that we want to serve, and include with this text file metadata (features or attributes) specified to the image:
-
-```
----
-type: image
-dataset-id: image1
-
-files:
-  - image1.jpg
-
-attributes:
-  - EXIF SubjectDistance": 0
-  - EXIF SceneType: 0
-  - Image Resolution: 768/17
-  - EXIF FlashEnergy: 1800
----
-```
-
-We also have added a list of files that are expected to be located within a subdirectory named by the image id, followed by the filename. In the example above, `image1.jpg` described in the file `images/image1.txt` would be located in `images/image1/image1.jpeg`.
 
 #### Why do I have to list my files?
 While these variables could be sniffied programmatically, it is important that you are able to include a data object in a repository, but turn it's "published" status on or off. If an image is not included in the list above, it will not be rendered in the json data structure for the API.
-
-#### Why does each image need it's own text file?
-The richness for data comes with it's metadata, meaning labels and attributes about the image. Thus, we want to represent this data on the same level as the image.
