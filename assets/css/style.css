@@ -1,0 +1,284 @@
+body {
+  background: #fafafa;
+  color: #5c5855;
+  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #149ad4;
+  font-weight: bold;
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline; }
+
+.topr {
+  position: fixed;
+  top: 15px;
+  right:15px;
+}
+
+h1, h2, h3, h5 {
+  color: #444;
+  font-family: Assistant,"Helvetica Neue", Helvetica, Arial, serif;
+  font-weight: 900;
+  line-height: 1.1; }
+
+h1 {
+  font-size: 35px;
+  margin-bottom: 25px; }
+
+.license h1 {
+  max-width: 700px; }
+
+h2 {
+  opacity: 0.8;
+  font-size: 24px;
+  margin-top: 24px;
+  margin-bottom: 10px; }
+
+h3 {
+  font-size: 15px;
+  margin-top: 20px;
+  margin-bottom: 10px; }
+
+h5 {
+  font-size: 14px;
+  margin-bottom: 15px; }
+
+p {
+  margin-bottom: 1em; }
+
+ol, ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none; }
+
+th, td {
+  text-align: left;
+  font-weight: normal; }
+
+strong {
+  color: #444; }
+
+:target {
+  background-color: yellow; }
+
+.container {
+  margin: 40px auto;
+  width: 940px; }
+
+.home {
+  text-align: center; }
+
+.home h1 {
+  font-size: 60px; }
+
+.home h2 {
+  color: #687072;
+  font-size: 27px;
+  line-height: 70px;
+  margin-bottom: 45px;
+  vertical-align: middle;
+  opacity: 1; }
+
+.home h2 span {
+  color: #f1f1f1;
+  font-size: 70px;
+  padding: 0 5px;
+  position: relative;
+  top: 10px; }
+
+.triptych {
+  width: 900px;
+  margin: 0 auto 20px; }
+
+.triptych li {
+  width: 280px;
+  float: left;
+  margin-left: 27px; }
+
+.triptych li:first-child {
+  margin-left: 0; }
+
+.triptych li > a {
+  text-decoration: none; }
+
+.triptych h3 {
+  font-size: 22px;
+  margin: 0 auto 20px auto;
+  width: 220px; }
+
+.situations .whatever {
+  margin-top: 16px; }
+
+.situations .copyleft {
+  margin-top: 3px; }
+
+.situations .button {
+  margin-top: 20px; }
+
+.triptych-sprite {
+  background-image: url(../img/home-sprite.png);
+  background-repeat: no-repeat;
+  display: inline-block; }
+
+.name {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border-right: solid 1px #ddd;
+  padding-left: 0;
+  width: 280px; }
+
+
+.site-footer {
+  border-top: 1px solid #eee;
+  margin-top: 30px;
+  padding-top: 20px;
+  color: #555;
+  font-size: 12px;
+  text-align: left;
+  line-height: 1.5; }
+
+.site-footer a {
+  color: #444;
+  font-weight: normal; }
+
+.site-footer p {
+  float: left;
+  margin-top: 0; }
+
+.site-footer nav {
+  float: right; }
+
+.site-footer nav a {
+  display: inline-block;
+  margin-left: 20px; }
+
+.bullets {
+  list-style-type: disc; }
+
+.bullets > li {
+  margin-left: 2em; }
+
+.small {
+  font-size: 90%; }
+
+
+/* For modern browsers */
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 200 / 100), only screen and (min-device-pixel-
+
+/* iPads (landscape) ----------- */
+@media only screen and (max-width: 1050px) {
+  .container {
+    width: 100%;
+    padding: 0 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+
+  .triptych {
+    width: 100%; }
+
+  .triptych li {
+    width: 33%;
+    margin-left: 0;
+    padding: 0 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+
+  .triptych h3 {
+    width: auto;
+    padding: 0 30px; }
+
+  .home h2 {
+    line-height: 30px;
+    padding: 20px 100px;
+    position: relative; }
+
+  .home h2 span {
+    position: absolute;
+    display: block;
+    float: left;
+    top: 50%;
+    margin-top: -22px; }
+
+  .home h2 span:first-child {
+    left: 65px; }
+
+  .home h2 span:last-child {
+    right: 65px; }
+
+  .license-body {
+    width: calc(100% - 250px); } }
+
+/* iPads (portrait) ----------- */
+@media only screen and (max-width: 800px), (max-device-width: 1050px) and (orientation: portrait) {
+  .triptych h3 {
+    width: auto;
+    padding: 0 10px;
+    margin-bottom: 10px; }
+
+/* Smartphones  ----------- */
+@media only screen and (max-width: 680px) {
+  .triptych li {
+    float: none;
+    width: 100%;
+    margin-bottom: 50px; }
+
+  .home h2 {
+    padding: 20px 70px; }
+
+  .home h2 span:first-child {
+    left: 35px; }
+
+  .home h2 span:last-child {
+    right: 35px; }
+
+  .site-footer {
+    text-align: center; }
+
+  .site-footer nav, .site-footer p, .with-love {
+    float: none; }
+
+  .site-footer nav {
+    margin: 0 auto 10px; } }
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (max-width: 481px) {
+  h1 {
+    font-size: 30px;
+    margin-bottom: 15px; }
+
+  .home h1 {
+    font-size: 33px; }
+
+  .home h2 {
+    font-size: 17px;
+    line-height: 20px;
+    padding: 20px 45px; }
+
+  .home h2 span:first-child {
+    left: 0; }
+
+  .home h2 span:last-child {
+    right: 0; }
+
+  .home h2 span {
+    margin-top: -16px; }
+
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 321px) {
+  .container {
+    padding: 0 10px; } }

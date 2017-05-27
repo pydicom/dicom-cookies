@@ -1,0 +1,9 @@
+---
+type: images
+dataset-id: "cookie-63"
+images:
+  - image4.dcm
+  - image1.dcm
+  - image2.dcm
+  - image3.dcm
+---

@@ -1,0 +1,6 @@
+---
+type: images
+dataset-id: "cookie-28"
+images:
+  - image1.dcm
+---

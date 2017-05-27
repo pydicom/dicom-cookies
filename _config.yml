@@ -1,0 +1,38 @@
+---
+title: Cookie Tumor Dicom Dataset
+description: Example JSON API to serve cookie tumor dicom dataset
+relative_permalinks: false
+markdown: kramdown
+url: "https://pydicom.github.io/dicom-cookies"
+repo: "https://www.github.com/pydicom/dicom-cookies"
+
+collections:
+  datasets:
+    output: true
+    permalink: /datasets/:path/
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "datasets"
+    values:
+      hidden: true
+      layout: dataset
+
+exclude:
+  - CONTRIBUTING.md
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.md
+  - README.md
+  - assets/vendor/selectivizr/tests
+  - assets/vendor/clipboard/test
+
+gems:
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+
+twitter:
+  username: "@researchapps"

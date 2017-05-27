@@ -1,0 +1,11 @@
+---
+type: images
+dataset-id: "cookie-45"
+images:
+  - image4.dcm
+  - image5.dcm
+  - image1.dcm
+  - image6.dcm
+  - image2.dcm
+  - image3.dcm
+---

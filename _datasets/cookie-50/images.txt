@@ -1,0 +1,15 @@
+---
+type: images
+dataset-id: "cookie-50"
+images:
+  - image8.dcm
+  - image4.dcm
+  - image9.dcm
+  - image10.dcm
+  - image5.dcm
+  - image7.dcm
+  - image1.dcm
+  - image6.dcm
+  - image2.dcm
+  - image3.dcm
+---

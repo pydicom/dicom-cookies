@@ -1,0 +1,53 @@
+---
+title: datasets
+layout: none
+---
+
+{
+
+  "links": {
+    "self": "{{ site.url }}{{ page.url }}"
+  },
+
+  {% unless page.hidden == "true" %}
+  "data": [
+            {
+                "type": "{{ page.type }}",
+                "id": "{{ page.dataset-id | escape }}",
+
+            {% if page.files %}
+                "files": {
+                {% for file in page.files %}
+                    "{{ file }}": "{{ site.url }}{{ page.url }}{{ file }}"{% unless forloop.last %},{% endunless %}
+                {% endfor %}
+                },
+            {% endif %}
+
+            {% if page.images %}
+                "images": {
+                {% for image in page.images %}
+                    "{{ image }}": "{{ site.url }}{{ page.url }}{{ image }}"{% unless forloop.last %},{% endunless %}
+                {% endfor %}
+                },
+            {% endif %}
+
+            {% if page.texts %}
+                "texts": {
+                {% for text in page.texts %}
+                    "{{ text }}": "{{ site.url }}{{ page.url }}{{ text }}"{% unless forloop.last %},{% endunless %}
+                {% endfor %}
+                },
+            {% endif %}
+
+            {% if page.attributes %}
+                "attributes": {
+                {% for attribute in page.attributes %}
+                    {% for parts in attribute %}
+                        "{{ parts[0] }}": "{{ parts[1] }}"{% unless forloop.last %},{% endunless %}
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+    }
+]
+{% endunless %}
+}

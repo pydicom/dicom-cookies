@@ -1,0 +1,242 @@
+[
+    {
+        "key": "id",
+        "value": "cookie-41"
+    },
+    {
+        "key": "file",
+        "value": "2012-12-20_20-57-10_44.jpg"
+    },
+    {
+        "key": "EXIF SubjectDistance",
+        "value": "0"
+    },
+    {
+        "key": "EXIF BrightnessValue",
+        "value": "0"
+    },
+    {
+        "key": "EXIF Contrast",
+        "value": "Normal"
+    },
+    {
+        "key": "GPS GPSLatitude",
+        "value": "[37,27,24]"
+    },
+    {
+        "key": "EXIF Sharpness",
+        "value": "Normal"
+    },
+    {
+        "key": "Image YCbCrPositioning",
+        "value": "Centered"
+    },
+    {
+        "key": "EXIF FlashPixVersion",
+        "value": "[0,0,0,0]"
+    },
+    {
+        "key": "GPS GPSVersionID",
+        "value": "[2,2,0,0]"
+    },
+    {
+        "key": "EXIF InteroperabilityOffset",
+        "value": "1270"
+    },
+    {
+        "key": "Image GPSInfo",
+        "value": "972"
+    },
+    {
+        "key": "EXIF SubjectDistanceRange",
+        "value": "0"
+    },
+    {
+        "key": "EXIF DigitalZoomRatio",
+        "value": "65536/65535"
+    },
+    {
+        "key": "EXIF MaxApertureValue",
+        "value": "3"
+    },
+    {
+        "key": "EXIF ExifImageLength",
+        "value": "1155"
+    },
+    {
+        "key": "EXIF WhiteBalance",
+        "value": "Auto"
+    },
+    {
+        "key": "EXIF ColorSpace",
+        "value": "sRGB"
+    },
+    {
+        "key": "EXIF ComponentsConfiguration",
+        "value": "CrCbY"
+    },
+    {
+        "key": "EXIF SceneType",
+        "value": "0"
+    },
+    {
+        "key": "EXIF CustomRendered",
+        "value": "Custom"
+    },
+    {
+        "key": "GPS GPSLongitudeRef",
+        "value": "W"
+    },
+    {
+        "key": "Image Model",
+        "value": "DROID3"
+    },
+    {
+        "key": "GPS GPSLongitude",
+        "value": "[122,11,1]"
+    },
+    {
+        "key": "GPS GPSDate",
+        "value": "2012:12:20"
+    },
+    {
+        "key": "EXIF SceneCaptureType",
+        "value": "Standard"
+    },
+    {
+        "key": "EXIF ExposureIndex",
+        "value": "0/0"
+    },
+    {
+        "key": "Image Software",
+        "value": "Picasa"
+    },
+    {
+        "key": "Image XResolution",
+        "value": "2079/46"
+    },
+    {
+        "key": "EXIF FlashEnergy",
+        "value": "1800"
+    },
+    {
+        "key": "Image Orientation",
+        "value": "Horizontal(normal)"
+    },
+    {
+        "key": "EXIF ExposureMode",
+        "value": "AutoExposure"
+    },
+    {
+        "key": "GPS GPSProcessingMethod",
+        "value": "ASCII"
+    },
+    {
+        "key": "Interoperability InteroperabilityIndex",
+        "value": "R98"
+    },
+    {
+        "key": "EXIF Saturation",
+        "value": "Normal"
+    },
+    {
+        "key": "Image ResolutionUnit",
+        "value": "Pixels/Inch"
+    },
+    {
+        "key": "Image Make",
+        "value": "motorola"
+    },
+    {
+        "key": "EXIF ISOSpeedRatings",
+        "value": "[65535,0,0]"
+    },
+    {
+        "key": "GPS GPSTimeStamp",
+        "value": "[20,57,1]"
+    },
+    {
+        "key": "EXIF ExposureProgram",
+        "value": "Unidentified"
+    },
+    {
+        "key": "Image ExifOffset",
+        "value": "390"
+    },
+    {
+        "key": "EXIF ShutterSpeedValue",
+        "value": "6"
+    },
+    {
+        "key": "EXIF GainControl",
+        "value": "256"
+    },
+    {
+        "key": "GPS GPSLatitudeRef",
+        "value": "N"
+    },
+    {
+        "key": "EXIF LightSource",
+        "value": "Tungsten(incandescentlight)"
+    },
+    {
+        "key": "EXIF FNumber",
+        "value": "14/5"
+    },
+    {
+        "key": "EXIF ImageUniqueID",
+        "value": "bdb83734781aa1b70000000000000000"
+    },
+    {
+        "key": "GPS GPSAltitudeRef",
+        "value": "0"
+    },
+    {
+        "key": "EXIF ExposureTime",
+        "value": "3/100"
+    },
+    {
+        "key": "EXIF ExifImageWidth",
+        "value": "2048"
+    },
+    {
+        "key": "EXIF ApertureValue",
+        "value": "3"
+    },
+    {
+        "key": "EXIF FocalLength",
+        "value": "23/5"
+    },
+    {
+        "key": "Image DateTime",
+        "value": "2012:12:2020:57:09"
+    },
+    {
+        "key": "Interoperability InteroperabilityVersion",
+        "value": "[48,49,48,48]"
+    },
+    {
+        "key": "EXIF CompressedBitsPerPixel",
+        "value": "0"
+    },
+    {
+        "key": "Image YResolution",
+        "value": "768/17"
+    },
+    {
+        "key": "EXIF Flash",
+        "value": "Flashdidnotfire,compulsoryflashmode"
+    },
+    {
+        "key": "EXIF ExifVersion",
+        "value": "[0,2,2,0]"
+    },
+    {
+        "key": "EXIF ExposureBiasValue",
+        "value": "0"
+    },
+    {
+        "key": "EXIF MeteringMode",
+        "value": "Average"
+    }
+]

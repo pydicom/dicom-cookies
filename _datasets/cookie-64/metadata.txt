@@ -1,0 +1,8 @@
+---
+type: entity
+dataset-id: "cookie-64"
+hidden: false
+
+includes:
+  - images
+---

@@ -1,0 +1,37 @@
+---
+type: images
+dataset-id: "cookie-56"
+images:
+  - image26.dcm
+  - image8.dcm
+  - image4.dcm
+  - image9.dcm
+  - image13.dcm
+  - image10.dcm
+  - image5.dcm
+  - image12.dcm
+  - image17.dcm
+  - image18.dcm
+  - image32.dcm
+  - image7.dcm
+  - image20.dcm
+  - image16.dcm
+  - image31.dcm
+  - image30.dcm
+  - image1.dcm
+  - image14.dcm
+  - image6.dcm
+  - image2.dcm
+  - image24.dcm
+  - image11.dcm
+  - image25.dcm
+  - image27.dcm
+  - image3.dcm
+  - image22.dcm
+  - image28.dcm
+  - image19.dcm
+  - image21.dcm
+  - image23.dcm
+  - image29.dcm
+  - image15.dcm
+---

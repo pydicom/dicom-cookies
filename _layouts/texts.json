@@ -1,0 +1,41 @@
+---
+title: texts
+layout: none
+---
+
+{
+
+  "links": {
+    "self": "{{ site.url }}{{ page.url }}",
+  },
+
+  "data": [
+
+        {% for dataset in site.datasets %}
+        {% unless dataset.hidden == "true" %}
+            {% if dataset.type == "texts" %}
+            {
+                "type": "{{ dataset.type }}",
+                "id": "{{ dataset.dataset-id | escape }}",
+                "links": {
+                    {% if dataset.includes %}
+                    {% for includetype in dataset.includes %}
+                        "{{ includetype }}": "{{ site.url }}{{ page.url }}{{ dataset.dataset-id }}/{{ includetype }}"{% unless forloop.last %},{% endunless %}
+                    {% endfor %}
+                    {% endif %}
+                    "self": "{{ site.url }}{{ dataset.url }}"
+                },
+                {% if dataset.attributes %}
+                    "attributes": {
+                    {% for attribute in dataset.attributes %}
+                        {% for parts in attribute %}
+                            "{{ parts[0] }}": "{{ parts[1] }}"{% unless forloop.last %},{% endunless %}
+                        {% endfor %}
+                    {% endfor %}
+                 {% endif %}
+    }{% unless forloop.last %},{% endunless %}
+    {% endif %}
+    {% endunless %}
+{% endfor %}
+]
+}
