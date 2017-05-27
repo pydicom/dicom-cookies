@@ -6,7 +6,7 @@ layout: none
 {
 
   "links": {
-    "self": "{{ site.url }}{{ page.url }}",
+    "self": "{{ site.url }}{{ page.url }}"
   },
 
   "data": [
