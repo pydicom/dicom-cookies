@@ -6,17 +6,27 @@ layout: none
 {
 
   "links": {
-    "self": "{{ site.url }}{{ page.url }}",
+    "self": "{{ site.url }}{{ page.url }}"
   },
 
   "data": [
 
-        {% for dataset in site.datasets %}
-        {% unless dataset.hidden == "true" %}
-            {% if dataset.type == "texts" %}
+        {% assign datasets = site.datasets | where: "type", "texts"  %}
+ 
+        {% for dataset in datasets %}
             {
                 "type": "{{ dataset.type }}",
                 "id": "{{ dataset.dataset-id | escape }}",
+                {% if dataset.attributes %}
+                    "attributes": {
+                    {% for attribute in dataset.attributes %}
+                        {% for parts in attribute %}
+                            "{{ parts[0] }}": "{{ parts[1] }}"
+                             {% if forloop.last %}{% else %},{% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                 },
+                 {% endif %}
                 "links": {
                     {% if dataset.includes %}
                     {% for includetype in dataset.includes %}
@@ -24,18 +34,9 @@ layout: none
                     {% endfor %}
                     {% endif %}
                     "self": "{{ site.url }}{{ dataset.url }}"
-                },
-                {% if dataset.attributes %}
-                    "attributes": {
-                    {% for attribute in dataset.attributes %}
-                        {% for parts in attribute %}
-                            "{{ parts[0] }}": "{{ parts[1] }}"{% unless forloop.last %},{% endunless %}
-                        {% endfor %}
-                    {% endfor %}
-                 {% endif %}
-    }{% unless forloop.last %},{% endunless %}
-    {% endif %}
-    {% endunless %}
+                }
+            }
+    {% if forloop.last %}{% else %},{% endif %}
 {% endfor %}
 ]
 }
