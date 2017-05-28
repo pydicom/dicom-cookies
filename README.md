@@ -7,7 +7,6 @@
 This is a testing dataset of dicom files, actually images of cookies (and candy tumors) provided in Dicom Format with various metadata, the intention being that you can use this dataset to test your DICOM applications. The dataset is provided in the [Experiment Factory](https://www.github.com/expfactory-data/cookies) standard, using the [JSON API](http://jsonapi.org/) specification to make it servable from this static Github folder The general goal of this simple framework is to make it possible for anyone, with little programming experience, to put images and associated in metadata, push them to Github, and have them programatically accessible. The entire thing is rendered statically using [Jekyll on Github Pages](https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/).
 
 ## Where is the data?
-The dataset can be viewed in entity on <a href="{{ site.github }}" target="_blank">Github</a>. 
 Each dataset is a separate folder within `_datasets`, and this means that you can add a new dataset by simply adding a folder with the appropriate subfolders and metadata. 
 
 ## How can I share my own data?
