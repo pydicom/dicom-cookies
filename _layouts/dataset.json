@@ -29,7 +29,7 @@ layout: none
                     "{{ image }}": "{{ site.url }}{{ page.url }}{{ image }}"
                    {% if forloop.last %}{% else %},{% endif %}
                 {% endfor %}
-                }
+                },
             {% endif %}
 
             {% if page.texts %},

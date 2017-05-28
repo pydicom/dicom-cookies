@@ -15,8 +15,8 @@ You can easily create your own programatically accessible data by doing the foll
 
  1. use this repo as a template, and clear out the `_datasets` folder, replacing with your data with the structure (outlined below).
  2. push to the `gh-pages` branch of a repo. If your github username is `pydicom`, and the repo is called `dicom-cookies`, this means that the Github Pages branch is deployed at [https://pydicom.github.io/dicom-cookies].
-    - The "human friendly" version of your work will be at the url [https://pydicom.github.io/dicom-cookies](https://pydicom.github.io/dicom-cookies). Any application that understands these kinds of datasets can be given that url.
-    - The general datasets endpoint can be found at [https://pydicom.github.io/dicom-cookies/datasets](https://pydicom.github.io/dicom-cookies/datasets). This includes entity names, and links to different content types.
+    - The "human friendly" version of will be at [https://pydicom.github.io/dicom-cookies](https://pydicom.github.io/dicom-cookies).
+    - The general datasets endpoint can be found at [https://pydicom.github.io/dicom-cookies/datasets](https://pydicom.github.io/dicom-cookies/datasets).
     - A filtered version for each of [images](https://pydicom.github.io/dicom-cookies/images) and (if defined) [texts](https://pydicom.github.io/dicom-cookies/texts) is also available.
 
 
@@ -29,8 +29,7 @@ A complete example of how you might programatically access your data is provided
 In the example provided, the tool defaults to this repo, so you don't need to specify anything at all, other than your preference for downloading datasets, or images. But also for this application, the only datasets that we have are images, so the two functionalities return the same thing. Let's take a look at how this might work
 
 ```bash
-git clone https://www.github.com/pydicom/dicom-cookies
-cd dicom-cookies/scripts
+wget https://raw.githubusercontent.com/pydicom/dicom-cookies/master/scripts/get_datasets.py
 
 python get_datasets.py
 
