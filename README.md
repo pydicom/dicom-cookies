@@ -26,7 +26,9 @@ A complete example of how you might programatically access your data is provided
  - Give the repository unique resource identifier (uri) to the application.
  - optionally specify images, texts
 
-In the example provided, the tool defaults to this repo, so you don't need to specify anything at all, other than your preference for downloading datasets, or images. But also for this application, the only datasets that we have are images, so the two functionalities return the same thing. Let's take a look at how this might work
+In the example provided, the tool defaults to this repo, so you don't need to specify anything at all, other than your preference for downloading datasets, or images. But also for this application, the only datasets that we have are images, so the two functionalities return the same thing. Let's take a look at how this might work, [or just watch here](https://asciinema.org/a/122503?speed=3).
+
+[![asciicast](https://asciinema.org/a/122503.png)](https://asciinema.org/a/122503?speed=3)
 
 ```bash
 wget https://raw.githubusercontent.com/pydicom/dicom-cookies/master/scripts/get_datasets.py
