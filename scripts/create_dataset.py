@@ -2,9 +2,11 @@
 
 from scripts.helpers import (
     write_file,
-    image2dicom
+    image2dicom,
+    get_name
 )
 
+from random import choice
 from glob import glob
 import os
 
@@ -33,6 +35,8 @@ for image_folder in image_folders:
     cookie_id = os.path.basename(image_folder)
     print("Processing %s" %cookie_id)
     lookup[cookie_id] = []
+    patient_name = get_name()
+    patient_sex = choice(["M","F"])
     cookie_output = os.path.join(output_folder,cookie_id)
     if not os.path.exists(cookie_output):
         os.mkdir(cookie_output)
@@ -48,6 +52,8 @@ for image_folder in image_folders:
             image2dicom(input_image=image,
                         output_dcm=dcm_file,
                         singularity=dcm,
+                        patient_sex=patient_sex,
+                        patient_name=patient_name,
                         patient_id=cookie_id)
             
 

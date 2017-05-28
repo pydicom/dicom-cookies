@@ -36,7 +36,8 @@ def get_name():
     return haikunator.haikunate(token_length=0,delimiter=' ')
 
 
-def image2dicom(input_image,singularity,output_dcm=None,patient_id=None):
+def image2dicom(input_image,singularity,output_dcm=None,patient_id=None,
+                patient_name=None,patient_sex=None):
    '''image2dicom uses dcm2k img2dcm wrapped in a singularity container to more 
    properly convert a jpg image to dicom. I was using cookie2dicom and doing it manually,
    and found that I was uncomfortable with the number of bugs (I am relatively new to dicom
@@ -44,6 +45,8 @@ def image2dicom(input_image,singularity,output_dcm=None,patient_id=None):
    :param input_image: the image to convert
    :param singularity: the singularity image that has the dcm2k tools installed at opt.
    :param output_dcm: if not defined, will use same path as original image, but with dicom.
+   :param patient_name,patient_gender,patient_id: optional fields for id, name, and gender.
+   If not provided, will be generated randomly.
    '''   
    if output_dcm is None:
        output_dcm = "%s.dcm" %(os.path.splitext(input_image)[0])
@@ -59,14 +62,27 @@ def image2dicom(input_image,singularity,output_dcm=None,patient_id=None):
        ds.StudyTime = '%s%s%s' %(now.hour,now.minute,now.second)
        ds.InstitutionName = "STANFORD"
        ds.ReferringPhysicianName = 'Dr. %s' %(get_name())
-       ds.PatientSex = choice(['M','F'])
+       if patient_sex is None:
+           patient_sex = choice(['M','F'])
+       ds.PatientSex = patient_sex
+       if patient_name is None:
+           patient_name = get_name()
+       ds.PatientName = patient_name
+       ds.NameOfPhysiciansReadingStudy = 'Dr. %s' %(get_name())
+       ds.OperatorsName = get_name()
+       ds.ImageComments = "This is a cookie tumor dataset for testing dicom tools."
+       ds.StudyId = 'cookietumors'
        if patient_id is not None:
            ds.PatientID = patient_id
+       ds.save_as(output_dcm)
    return output_dcm
 
 
 
 def cookie2dicom(image,metadata):
+    '''This was a first attempt to create a new dicom on my own, and I took an approach of reading
+    in a dummy/template and modifying. I decided instead to use the above approach with image2dicom,
+    which uses a tool provided with dcm2k inside a singularity image at https://www.github.com/pydicom/singularity-dicom'''
 
     im = Image.open(image)
     now = datetime.datetime.now()
