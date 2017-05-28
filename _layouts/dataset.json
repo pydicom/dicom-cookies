@@ -11,8 +11,7 @@ layout: none
 
   "data": [
             {
-              "type": "{{ page.type }}",
-              "id": "{{ page.dataset-id | escape }}",
+            "id": "{{ page.dataset-id | escape }}",
 
            {% if page.attributes %}
                 "attributes": {
@@ -41,6 +40,8 @@ layout: none
                 {% endfor %}
                 },
             {% endif %}
+            "type": "{{ page.type }}"
+
     }
 ]
 }
