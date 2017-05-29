@@ -140,3 +140,7 @@ As a reminder, in the example above, we have a folder that looks like this, and 
 
 #### Why do I have to list my files?
 While these variables could be sniffied programmatically, it is important that you are able to include a data object in a repository, but turn it's "published" status on or off. If an image is not included in the list above, it will not be rendered in the json data structure for the API.
+
+
+## Cookie Manifest
+You can easily download images using the example above (with [get_datasets.py](scripts/get_datasets.py) in the scripts folder, and then we've provided a simple example of how to generate a [cookie manifest](scripts/cookie_manifest.json) using the script [get_cookie_manifest.py](scripts/get_cookie_manifest.py), which is basically a lookup dictionary (by cookie id) with a list of cookies and metadata that (likely) a user would search for like cookie ID (PatientID), gender (PatientSex), and name (PatientName) along with referring and reading physician names, and study operator. We have provided this file for you, in case you just want to quickly use it for the dataset provided here.
